@@ -1,0 +1,6 @@
+{
+  "name": "Cricket Fever",
+  "description": "A dark-mode sports broadcast style mega auction SaaS platform featuring real-time bidding simulation, Gavel moderation controls, role clearances, squad planners and catalog search engines.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
