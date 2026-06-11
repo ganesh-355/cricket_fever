@@ -13,10 +13,12 @@ import { SquadBuilderDraft } from './pages/SquadBuilder';
 import { PlayerAnalyticsSearch } from './pages/PlayerSearch';
 import { AnalyticsLeaderboardDashboard } from './pages/Leaderboard';
 import { RegisterAuction } from './pages/RegisterAuction';
+import { RoleSwitcherHub } from './components/GlobalRoleSelectorHub';
 
 export default function App() {
   return (
     <HashRouter>
+      <RoleSwitcherHub />
       <Routes>
         {/* Home page sits raw without global HUD to permit credentials assignment first */}
         <Route path="/" element={<Home />} />

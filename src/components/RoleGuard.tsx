@@ -10,7 +10,7 @@ interface RoleGuardProps {
 
 export const RoleGuard: React.FC<RoleGuardProps> = ({ children, allowedRoles }) => {
   // Fetch authentication status and active role directly from authStore
-  const { userRole, setRole, isAuthenticated } = useAuthStore();
+  const { userRole, setRole, isAuthenticated, setAuthenticated } = useAuthStore();
 
   const isAllowed = allowedRoles.includes(userRole) && isAuthenticated;
 
@@ -55,7 +55,10 @@ export const RoleGuard: React.FC<RoleGuardProps> = ({ children, allowedRoles }) 
                 <button
                   key={role}
                   id={`elevate-access-${role.toLowerCase()}`}
-                  onClick={() => setRole(role)}
+                  onClick={() => {
+                    setRole(role);
+                    setAuthenticated(true);
+                  }}
                   className="flex items-center justify-center gap-1.5 px-3 py-2 bg-amber-500 hover:bg-amber-400 text-[#050507] text-xs font-black rounded-xl transition cursor-pointer"
                 >
                   Switch to {role.split('_')[0]}

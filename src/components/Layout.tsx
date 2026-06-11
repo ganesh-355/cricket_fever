@@ -33,7 +33,8 @@ export const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) =
     setWebSocketStatus,
     activeAuction,
     logs,
-    passTimer
+    passTimer,
+    setAuthenticated
   } = useStore();
 
   const { connect, disconnect } = useWebSocket();
@@ -326,7 +327,10 @@ export const Layout: React.FC<{ children?: React.ReactNode }> = ({ children }) =
             <select
               id="global-role-dropdown"
               value={userRole}
-              onChange={(e) => setRole(e.target.value as UserRole)}
+              onChange={(e) => {
+                setRole(e.target.value as UserRole);
+                setAuthenticated(true);
+              }}
               className="bg-[#0c0c0e] border border-white/10 text-white font-sans text-[10px] rounded focus:outline-none focus:border-[#0f62fe] cursor-pointer font-bold uppercase tracking-tight py-1 px-2.5"
             >
               <option value={UserRole.SPECTATOR}>Spectator View</option>
